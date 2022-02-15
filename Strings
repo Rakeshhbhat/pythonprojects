@@ -1,0 +1,9 @@
+fn=input("Enter your first name ")
+mn=input("Enter your middle name ")
+ln=input("Enter your last name ")
+print("Your initials are ",fn[0],mn[0],ln[0])
+
+a="037-00901-00027"
+print("country code = ",a[0:3])
+print("product code = ",a[4:9])
+print("batch number = ",a[-5:])
