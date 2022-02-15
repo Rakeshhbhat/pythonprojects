@@ -1,0 +1,90 @@
+from turtle import *
+bgcolor('black')
+pencolor('yellow')
+title('Tic Tac Toe')
+setup(600,600)
+hideturtle()
+up()
+speed(12)
+pensize(12)
+
+
+goto(-300,100)
+down()
+forward(600)
+up()
+goto(-300,-100)
+down()
+forward(600)
+up()
+
+goto(-100,300)
+setheading(-90)
+down()
+forward(600)
+up()
+goto(100,300)
+down()
+forward(600)
+up()
+
+pencolor('white')
+
+entrys=['','','','','','','','','']
+next='O'
+free = 9
+
+def xmark(x,y):
+    up()
+    goto(x+20,y-20)
+    setheading(-45)
+    down()
+    forward(226)
+    up()
+    goto(x+180,y-20)
+    setheading(-135)
+    down()
+    forward(226)
+    up()
+
+def cmark(x,y):
+    up()
+    goto(x+100,y-180)
+    setheading(0)
+    down()
+    circle(80)
+    up()
+
+def draw(entrys):
+    x=-300
+    y=300
+    for entry in entrys:
+        if entry=='X':
+                xmark(x,y)
+        elif entry=='O':
+                cmark(x,y)
+        x=x+200
+        if x>100:
+                x=-300
+                y=y-200
+
+
+def clicked(x,y):
+    global entrys,next
+    column=(x+300)//200
+    row=(-y+300)//200
+    square=int(column+row*3)
+    print(x,y,square)
+    if entrys[square]=='':
+        entrys[square]=next
+    if next=='X':
+        next='O'
+    else:
+        next='X'
+    draw(entrys)
+    
+
+
+
+onscreenclick(clicked)
+mainloop()
